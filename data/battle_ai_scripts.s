@@ -51,7 +51,7 @@ gBattleAI_ScriptsTable::
 
 AI_CheckBadMove::
 @	if_move MOVE_FISSURE, AI_CBM_CheckIfNegatesType  @ Improvement in Emerald
-@	if_move MOVE_HORN_DRILL, AI_CBM_CheckIfNegatesType
+@	if_move MOVE_HORNDRILL, AI_CBM_CheckIfNegatesType
 	get_how_powerful_move_is
 	if_equal MOVE_POWER_DISCOURAGED, AI_CheckBadMove_CheckSoundproof
 
@@ -98,8 +98,8 @@ AI_CheckBadMove_CheckSoundproof::
 	if_move MOVE_SCREECH, Score_Minus10
 	if_move MOVE_SNORE, Score_Minus10
 	if_move MOVE_UPROAR, Score_Minus10
-	if_move MOVE_METAL_SOUND, Score_Minus10
-	if_move MOVE_GRASS_WHISTLE, Score_Minus10
+	if_move MOVE_METALSOUND, Score_Minus10
+	if_move MOVE_GRASSWHISTLE, Score_Minus10
 
 AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_SLEEP, AI_CBM_Sleep
@@ -124,7 +124,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_ROAR, AI_CBM_Roar
 	if_effect EFFECT_TOXIC, AI_CBM_Poison
 	if_effect EFFECT_LIGHT_SCREEN, AI_CBM_LightScreen
-	if_effect EFFECT_OHKO, AI_CBM_OneHitKO
+	if_effect EFFECT_0HKO, AI_CBM_OneHitKO
 	if_effect EFFECT_RAZOR_WIND, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_SUPER_FANG, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_MIST, AI_CBM_Mist
@@ -168,9 +168,9 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_SANDSTORM, AI_CBM_Sandstorm
 	if_effect EFFECT_SWAGGER, AI_CBM_Confuse
 	if_effect EFFECT_ATTRACT, AI_CBM_Attract
-	if_effect EFFECT_RETURN, AI_CBM_HighRiskForDamage
+	if_effect EFFECT_BLANK_121, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_PRESENT, AI_CBM_HighRiskForDamage
-	if_effect EFFECT_FRUSTRATION, AI_CBM_HighRiskForDamage
+	if_effect EFFECT_BLANK_123, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_SAFEGUARD, AI_CBM_Safeguard
 	if_effect EFFECT_MAGNITUDE, AI_CBM_Magnitude
 	if_effect EFFECT_BATON_PASS, AI_CBM_BatonPass
@@ -203,7 +203,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_ENDEAVOR, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_IMPRISON, AI_CBM_Imprison
 	if_effect EFFECT_REFRESH, AI_CBM_Refresh
-	if_effect EFFECT_LOW_KICK, AI_CBM_HighRiskForDamage
+	if_effect EFFECT_BLANK_196, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_MUD_SPORT, AI_CBM_MudSport
 	if_effect EFFECT_TICKLE, AI_CBM_Tickle
 	if_effect EFFECT_COSMIC_POWER, AI_CBM_CosmicPower
@@ -679,7 +679,7 @@ AI_CheckViability::
 	if_effect EFFECT_TOXIC, AI_CV_Toxic
 	if_effect EFFECT_LIGHT_SCREEN, AI_CV_LightScreen
 	if_effect EFFECT_REST, AI_CV_Rest
-	if_effect EFFECT_OHKO, AI_CV_OneHitKO
+	if_effect EFFECT_0HKO, AI_CV_OneHitKO
 	if_effect EFFECT_RAZOR_WIND, AI_CV_ChargeUpMove
 	if_effect EFFECT_SUPER_FANG, AI_CV_SuperFang
 	if_effect EFFECT_TRAP, AI_CV_Trap
@@ -705,7 +705,7 @@ AI_CheckViability::
 	@ if_effect EFFECT_SWAGGER, AI_CV_Swagger  @ Improvement in Emerald
 	if_effect EFFECT_SPEED_DOWN_HIT, AI_CV_SpeedDownFromChance
 	if_effect EFFECT_SKY_ATTACK, AI_CV_ChargeUpMove
-	if_effect EFFECT_VITAL_THROW, AI_CV_VitalThrow
+	if_effect EFFECT_BLANK_78, AI_CV_VitalThrow
 	if_effect EFFECT_SUBSTITUTE, AI_CV_Substitute
 	if_effect EFFECT_RECHARGE, AI_CV_Recharge
 	if_effect EFFECT_LEECH_SEED, AI_CV_Toxic
@@ -725,28 +725,28 @@ AI_CheckViability::
 	if_effect EFFECT_CURSE, AI_CV_Curse
 	if_effect EFFECT_PROTECT, AI_CV_Protect
 	if_effect EFFECT_FORESIGHT, AI_CV_Foresight
-	if_effect EFFECT_ENDURE, AI_CV_Endure
+	if_effect EFFECT_BLANK_116, AI_CV_Endure
 	if_effect EFFECT_BATON_PASS, AI_CV_BatonPass
 	if_effect EFFECT_PURSUIT, AI_CV_Pursuit
 	if_effect EFFECT_MORNING_SUN, AI_CV_HealWeather
-	if_effect EFFECT_SYNTHESIS, AI_CV_HealWeather
-	if_effect EFFECT_MOONLIGHT, AI_CV_HealWeather
+	if_effect EFFECT_BLANK_133, AI_CV_HealWeather
+	if_effect EFFECT_BLANK_134, AI_CV_HealWeather
 	if_effect EFFECT_RAIN_DANCE, AI_CV_RainDance
 	if_effect EFFECT_SUNNY_DAY, AI_CV_SunnyDay
 	if_effect EFFECT_BELLY_DRUM, AI_CV_BellyDrum
 	if_effect EFFECT_PSYCH_UP, AI_CV_PsychUp
 	if_effect EFFECT_MIRROR_COAT, AI_CV_MirrorCoat
 	if_effect EFFECT_SKULL_BASH, AI_CV_ChargeUpMove
-	if_effect EFFECT_SOLAR_BEAM, AI_CV_ChargeUpMove
+	if_effect EFFECT_SOLARBEAM, AI_CV_ChargeUpMove
 	if_effect EFFECT_SEMI_INVULNERABLE, AI_CV_SemiInvulnerable
-	if_effect EFFECT_SOFTBOILED, AI_CV_Heal
+	if_effect EFFECT_SPRINGTIDE_STORM, AI_CV_Heal
 	if_effect EFFECT_FAKE_OUT, AI_CV_FakeOut
 	if_effect EFFECT_SPIT_UP, AI_CV_SpitUp
 	if_effect EFFECT_SWALLOW, AI_CV_Heal
 	if_effect EFFECT_HAIL, AI_CV_Hail
 	if_effect EFFECT_FLATTER, AI_CV_Flatter
 	if_effect EFFECT_MEMENTO, AI_CV_SelfKO
-	if_effect EFFECT_FACADE, AI_CV_Facade
+	if_effect EFFECT_BLANK_169, AI_CV_Facade
 	if_effect EFFECT_FOCUS_PUNCH, AI_CV_FocusPunch
 	if_effect EFFECT_SMELLINGSALT, AI_CV_SmellingSalt
 	if_effect EFFECT_TRICK, AI_CV_Trick
@@ -754,22 +754,22 @@ AI_CheckViability::
 	if_effect EFFECT_SUPERPOWER, AI_CV_Superpower
 	if_effect EFFECT_MAGIC_COAT, AI_CV_MagicCoat
 	if_effect EFFECT_RECYCLE, AI_CV_Recycle
-	if_effect EFFECT_REVENGE, AI_CV_Revenge
+	if_effect EFFECT_BLANK_185, AI_CV_Revenge
 	if_effect EFFECT_BRICK_BREAK, AI_CV_BrickBreak
 	if_effect EFFECT_KNOCK_OFF, AI_CV_KnockOff
 	if_effect EFFECT_ENDEAVOR, AI_CV_Endeavor
-	if_effect EFFECT_ERUPTION, AI_CV_Eruption
+	if_effect EFFECT_BLANK_190, AI_CV_Eruption
 	if_effect EFFECT_SKILL_SWAP, AI_CV_ChangeSelfAbility
 	if_effect EFFECT_IMPRISON, AI_CV_Imprison
 	if_effect EFFECT_REFRESH, AI_CV_Refresh
 	if_effect EFFECT_SNATCH, AI_CV_Snatch
-	if_effect EFFECT_BLAZE_KICK, AI_CV_HighCrit
+	if_effect EFFECT_DEF_SPD_UP, AI_CV_HighCrit
 	if_effect EFFECT_MUD_SPORT, AI_CV_MudSport
 	if_effect EFFECT_OVERHEAT, AI_CV_Overheat
 	if_effect EFFECT_TICKLE, AI_CV_DefenseDown
 	if_effect EFFECT_COSMIC_POWER, AI_CV_SpDefUp
 	if_effect EFFECT_BULK_UP, AI_CV_DefenseUp
-	if_effect EFFECT_POISON_TAIL, AI_CV_HighCrit
+	if_effect EFFECT_BAD_POISON_HIT, AI_CV_HighCrit
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
@@ -861,36 +861,36 @@ AI_CV_MirrorMove_End::
 	.space 2
 AI_CV_MirrorMove_EncouragedMovesToMirror::
 	.align 1
-	.2byte MOVE_SLEEP_POWDER
-	.2byte MOVE_LOVELY_KISS
+	.2byte MOVE_SLEEPPOWDER
+	.2byte MOVE_LOVELYKISS
 	.2byte MOVE_SPORE
 	.2byte MOVE_HYPNOSIS
 	.2byte MOVE_SING
-	.2byte MOVE_GRASS_WHISTLE
-	.2byte MOVE_SHADOW_PUNCH
-	.2byte MOVE_SAND_ATTACK
+	.2byte MOVE_GRASSWHISTLE
+	.2byte MOVE_SHADOWPUNCH
+	.2byte MOVE_SANDATTACK
 	.2byte MOVE_SMOKESCREEN
 	.2byte MOVE_TOXIC
 	.2byte MOVE_GUILLOTINE
-	.2byte MOVE_HORN_DRILL
+	.2byte MOVE_HORNDRILL
 	.2byte MOVE_FISSURE
-	.2byte MOVE_SHEER_COLD
-	.2byte MOVE_CROSS_CHOP
+	.2byte MOVE_SHEERCOLD
+	.2byte MOVE_CROSSCHOP
 	.2byte MOVE_AEROBLAST
-	.2byte MOVE_CONFUSE_RAY
-	.2byte MOVE_SWEET_KISS
+	.2byte MOVE_CONFUSERAY
+	.2byte MOVE_SWEETKISS
 	.2byte MOVE_SCREECH
-	.2byte MOVE_COTTON_SPORE
-	.2byte MOVE_SCARY_FACE
-	.2byte MOVE_FAKE_TEARS
-	.2byte MOVE_METAL_SOUND
-	.2byte MOVE_THUNDER_WAVE
+	.2byte MOVE_COTTONSPORE
+	.2byte MOVE_SCARYFACE
+	.2byte MOVE_FAKETEARS
+	.2byte MOVE_METALSOUND
+	.2byte MOVE_THUNDERWAVE
 	.2byte MOVE_GLARE
-	.2byte MOVE_POISON_POWDER
-	.2byte MOVE_SHADOW_BALL
-	.2byte MOVE_DYNAMIC_PUNCH
-	.2byte MOVE_HYPER_BEAM
-	.2byte MOVE_EXTREME_SPEED
+	.2byte MOVE_POISONPOWDER
+	.2byte MOVE_SHADOWBALL
+	.2byte MOVE_DYNAMICPUNCH
+	.2byte MOVE_HYPERBEAM
+	.2byte MOVE_EXTREMESPEED
 	.2byte MOVE_THIEF
 	.2byte MOVE_COVET
 	.2byte MOVE_ATTRACT
@@ -899,7 +899,7 @@ AI_CV_MirrorMove_EncouragedMovesToMirror::
 	.2byte MOVE_FLATTER
 	.2byte MOVE_TRICK
 	.2byte MOVE_SUPERPOWER
-	.2byte MOVE_SKILL_SWAP
+	.2byte MOVE_SKILLSWAP
 	.2byte -1
 
 AI_CV_AttackUp::
@@ -1178,9 +1178,9 @@ AI_CV_DefenseDown_End::
 	end
 
 AI_CV_SpeedDownFromChance::
-	if_move MOVE_ICY_WIND, AI_CV_SpeedDown
-	if_move MOVE_ROCK_TOMB, AI_CV_SpeedDown
-	if_move MOVE_MUD_SHOT, AI_CV_SpeedDown
+	if_move MOVE_ICYWIND, AI_CV_SpeedDown
+	if_move MOVE_ROCKTOMB, AI_CV_SpeedDown
+	if_move MOVE_MUDSHOT, AI_CV_SpeedDown
 	end
 
 AI_CV_SpeedDown::
@@ -1548,7 +1548,7 @@ AI_CV_HighCrit_End::
 
 @ Improvement in Emerald
 @AI_CV_Swagger:
-@	if_has_move AI_USER, MOVE_PSYCH_UP, AI_CV_SwaggerHasPsychUp
+@	if_has_move AI_USER, MOVE_PSYCHUP, AI_CV_SwaggerHasPsychUp
 
 AI_CV_Flatter::
 	if_random_less_than 128, AI_CV_Confuse
@@ -1736,7 +1736,7 @@ AI_CV_Counter2::
 	score -1
 
 AI_CV_Counter3::
-@	if_has_move AI_USER, MOVE_MIRROR_COAT, AI_CV_Counter7  @ Improvement in Emerald
+@	if_has_move AI_USER, MOVE_MIRRORCOAT, AI_CV_Counter7  @ Improvement in Emerald
 	get_last_used_move AI_TARGET
 	get_move_power_from_result
 	if_equal 0, AI_CV_Counter5
@@ -1839,7 +1839,7 @@ AI_CV_Encore_EncouragedMovesToEncore::
 	.byte EFFECT_FORESIGHT
 	.byte EFFECT_PERISH_SONG
 	.byte EFFECT_SANDSTORM
-	.byte EFFECT_ENDURE
+	.byte EFFECT_BLANK_116
 	.byte EFFECT_SWAGGER
 	.byte EFFECT_ATTRACT
 	.byte EFFECT_SAFEGUARD
@@ -1866,7 +1866,7 @@ AI_CV_Encore_EncouragedMovesToEncore::
 	.byte EFFECT_IMPRISON
 	.byte EFFECT_REFRESH
 	.byte EFFECT_GRUDGE
-	.byte EFFECT_TEETER_DANCE
+	.byte EFFECT_ATK_ACC_UP
 	.byte EFFECT_MUD_SPORT
 	.byte EFFECT_WATER_SPORT
 	.byte EFFECT_DRAGON_DANCE
@@ -2849,7 +2849,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage::
 	.byte EFFECT_WILL_O_WISP
 	.byte EFFECT_INGRAIN
 	.byte EFFECT_IMPRISON
-	.byte EFFECT_TEETER_DANCE
+	.byte EFFECT_ATK_ACC_UP
 	.byte EFFECT_TICKLE
 	.byte EFFECT_COSMIC_POWER
 	.byte EFFECT_BULK_UP
@@ -2879,7 +2879,7 @@ AI_Risky_EffectsToEncourage::
 	.byte EFFECT_SLEEP
 	.byte EFFECT_EXPLOSION
 	.byte EFFECT_MIRROR_MOVE
-	.byte EFFECT_OHKO
+	.byte EFFECT_0HKO
 	.byte EFFECT_HIGH_CRITICAL
 	.byte EFFECT_CONFUSE
 	.byte EFFECT_METRONOME
@@ -2893,8 +2893,8 @@ AI_Risky_EffectsToEncourage::
 	.byte EFFECT_BELLY_DRUM
 	.byte EFFECT_MIRROR_COAT
 	.byte EFFECT_FOCUS_PUNCH
-	.byte EFFECT_REVENGE
-	.byte EFFECT_TEETER_DANCE
+	.byte EFFECT_BLANK_185
+	.byte EFFECT_ATK_ACC_UP
 	.byte -1
 
 AI_PreferBatonPass::
@@ -2907,11 +2907,11 @@ AI_PreferBatonPass::
 
 @ Improvement in Emerald (several below)
 AI_PreferBatonPass_GoForBatonPass::
-@	if_move MOVE_SWORDS_DANCE, AI_PreferBatonPass2
-@	if_move MOVE_DRAGON_DANCE, AI_PreferBatonPass2
-@	if_move MOVE_CALM_MIND, AI_PreferBatonPass2
+@	if_move MOVE_SWORDSDANCE, AI_PreferBatonPass2
+@	if_move MOVE_DRAGONDANCE, AI_PreferBatonPass2
+@	if_move MOVE_CALMMIND, AI_PreferBatonPass2
 @	if_effect EFFECT_PROTECT, AI_PreferBatonPass3
-@	if_move MOVE_BATON_PASS, AI_PreferBatonPass_EncourageIfHighStats
+@	if_move MOVE_BATONPASS, AI_PreferBatonPass_EncourageIfHighStats
 	if_random_less_than 20, AI_Risky_End
 	score +3
 
@@ -3001,11 +3001,11 @@ AI_HPAware_DiscouragedEffectsWhenHighHP::
 	.byte EFFECT_REST
 	.byte EFFECT_DESTINY_BOND
 	.byte EFFECT_FLAIL
-	.byte EFFECT_ENDURE
+	.byte EFFECT_BLANK_116
 	.byte EFFECT_MORNING_SUN
-	.byte EFFECT_SYNTHESIS
-	.byte EFFECT_MOONLIGHT
-	.byte EFFECT_SOFTBOILED
+	.byte EFFECT_BLANK_133
+	.byte EFFECT_BLANK_134
+	.byte EFFECT_SPRINGTIDE_STORM
 	.byte EFFECT_MEMENTO
 	.byte EFFECT_GRUDGE
 	.byte EFFECT_OVERHEAT
@@ -3097,8 +3097,8 @@ AI_HPAware_DiscouragedEffectsWhenLowHP::
 	.byte EFFECT_BELLY_DRUM
 	.byte EFFECT_PSYCH_UP
 	.byte EFFECT_MIRROR_COAT
-	.byte EFFECT_SOLAR_BEAM
-	.byte EFFECT_ERUPTION
+	.byte EFFECT_SOLARBEAM
+	.byte EFFECT_BLANK_190
 	.byte EFFECT_TICKLE
 	.byte EFFECT_COSMIC_POWER
 	.byte EFFECT_BULK_UP
@@ -3172,7 +3172,7 @@ AI_HPAware_DiscouragedEffectsWhenTargetLowHP::
 	.byte EFFECT_CONVERSION
 	.byte EFFECT_TOXIC
 	.byte EFFECT_LIGHT_SCREEN
-	.byte EFFECT_OHKO
+	.byte EFFECT_0HKO
 	.byte EFFECT_SUPER_FANG  @ Maybe supposed to be EFFECT_RAZOR_WIND
 	.byte EFFECT_SUPER_FANG
 	.byte EFFECT_MIST

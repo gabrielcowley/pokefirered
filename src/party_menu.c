@@ -1893,12 +1893,12 @@ static u16 GetTutorMove(u8 tutor)
 {
     switch (tutor)
     {
-    case TUTOR_MOVE_FRENZY_PLANT:
-        return MOVE_FRENZY_PLANT;
-    case TUTOR_MOVE_BLAST_BURN:
-        return MOVE_BLAST_BURN;
-    case TUTOR_MOVE_HYDRO_CANNON:
-        return MOVE_HYDRO_CANNON;
+    case TUTOR_MOVE_FRENZYPLANT:
+        return MOVE_FRENZYPLANT;
+    case TUTOR_MOVE_BLASTBURN:
+        return MOVE_BLASTBURN;
+    case TUTOR_MOVE_HYDROCANNON:
+        return MOVE_HYDROCANNON;
     default:
         return sTutorMoves[tutor];
     }
@@ -1908,17 +1908,17 @@ static bool8 CanLearnTutorMove(u16 species, u8 tutor)
 {
     switch (tutor)
     {
-    case TUTOR_MOVE_FRENZY_PLANT:
+    case TUTOR_MOVE_FRENZYPLANT:
         if (species == SPECIES_VENUSAUR)
             return TRUE;
         else
             return FALSE;
-    case TUTOR_MOVE_BLAST_BURN:
+    case TUTOR_MOVE_BLASTBURN:
         if (species == SPECIES_CHARIZARD)
             return TRUE;
         else
             return FALSE;
-    case TUTOR_MOVE_HYDRO_CANNON:
+    case TUTOR_MOVE_HYDROCANNON:
         if (species == SPECIES_BLASTOISE)
             return TRUE;
         else
@@ -3914,7 +3914,7 @@ static void CursorCB_FieldMove(u8 taskId)
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
     if (MenuHelpers_IsLinkActive() == TRUE || InUnionRoom() == TRUE)
     {
-        if (fieldMove == FIELD_MOVE_MILK_DRINK || fieldMove == FIELD_MOVE_SOFT_BOILED)
+        if (fieldMove == FIELD_MOVE_MILKDRINK || fieldMove == FIELD_MOVE_SOFTBOILED)
             DisplayPartyMenuStdMessage(PARTY_MSG_CANT_USE_HERE);
         else
             DisplayPartyMenuStdMessage(sFieldMoveCursorCallbacks[fieldMove].msgId);
@@ -3932,8 +3932,8 @@ static void CursorCB_FieldMove(u8 taskId)
         {
             switch (fieldMove)
             {
-            case FIELD_MOVE_MILK_DRINK:
-            case FIELD_MOVE_SOFT_BOILED:
+            case FIELD_MOVE_MILKDRINK:
+            case FIELD_MOVE_SOFTBOILED:
                 ChooseMonForSoftboiled(taskId);
                 break;
             case FIELD_MOVE_TELEPORT:

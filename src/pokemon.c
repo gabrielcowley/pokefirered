@@ -92,7 +92,7 @@ struct CombinedMove
 
 static const struct CombinedMove sCombinedMoves[2] =
 {
-    {MOVE_EMBER, MOVE_GUST, MOVE_HEAT_WAVE},
+    {MOVE_EMBER, MOVE_GUST, MOVE_HEATWAVE},
     {0xFFFF, 0xFFFF, 0xFFFF}
 };
 
@@ -1634,7 +1634,7 @@ static const s8 sFriendshipEventDeltas[][3] =
 static const u16 sHMMoves[] = 
 {
     MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_FLASH,
-    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, HM_MOVES_END
+    MOVE_ROCKSMASH, MOVE_WATERFALL, MOVE_DIVE, HM_MOVES_END
 };
 
 #if defined(FIRERED)
@@ -2622,7 +2622,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             }
 
             // Any weather except sun weakens solar beam
-            if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL_TEMPORARY)) && gCurrentMove == MOVE_SOLAR_BEAM)
+            if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL_TEMPORARY)) && gCurrentMove == MOVE_SOLARBEAM)
                 damage /= 2;
 
             // Sun boosts Fire, weakens Water

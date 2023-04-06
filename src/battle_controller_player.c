@@ -378,7 +378,7 @@ static void HandleInputChooseTarget(void)
             case B_POSITION_PLAYER_RIGHT:
                 if (gActiveBattler != gMultiUsePlayerCursor)
                     ++i;
-                else if (gBattleMoves[GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_MOVE1 + gMoveSelectionCursor[gActiveBattler])].target & MOVE_TARGET_USER_OR_SELECTED)
+                else if (gBattleMoves[GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_MOVE1 + gMoveSelectionCursor[gActiveBattler])].target & MOVE_TARGET_USER_OR_PARTNER)
                     ++i;
                 break;
             case B_POSITION_OPPONENT_LEFT:
@@ -418,7 +418,7 @@ static void HandleInputChooseTarget(void)
             case B_POSITION_PLAYER_RIGHT:
                 if (gActiveBattler != gMultiUsePlayerCursor)
                     ++i;
-                else if (gBattleMoves[GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_MOVE1 + gMoveSelectionCursor[gActiveBattler])].target & MOVE_TARGET_USER_OR_SELECTED)
+                else if (gBattleMoves[GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_MOVE1 + gMoveSelectionCursor[gActiveBattler])].target & MOVE_TARGET_USER_OR_PARTNER)
                     ++i;
                 break;
             case B_POSITION_OPPONENT_LEFT:
@@ -464,7 +464,7 @@ void HandleInputChooseMove(void)
 
         if (!gBattleBufferA[gActiveBattler][1]) // not a double battle
         {
-            if (moveTarget & MOVE_TARGET_USER_OR_SELECTED && !gBattleBufferA[gActiveBattler][2])
+            if (moveTarget & MOVE_TARGET_USER_OR_PARTNER && !gBattleBufferA[gActiveBattler][2])
                 ++canSelectTarget;
         }
         else // double battle
@@ -475,7 +475,7 @@ void HandleInputChooseMove(void)
             {
                 canSelectTarget = FALSE;
             }
-            else if (!(moveTarget & (MOVE_TARGET_USER | MOVE_TARGET_USER_OR_SELECTED)) && CountAliveMonsInBattle(BATTLE_ALIVE_EXCEPT_ACTIVE) <= 1)
+            else if (!(moveTarget & (MOVE_TARGET_USER | MOVE_TARGET_USER_OR_PARTNER)) && CountAliveMonsInBattle(BATTLE_ALIVE_EXCEPT_ACTIVE) <= 1)
             {
                 gMultiUsePlayerCursor = GetDefaultMoveTarget(gActiveBattler);
                 canSelectTarget = FALSE;
@@ -491,7 +491,7 @@ void HandleInputChooseMove(void)
         else
         {
             gBattlerControllerFuncs[gActiveBattler] = HandleInputChooseTarget;
-            if (moveTarget & (MOVE_TARGET_USER | MOVE_TARGET_USER_OR_SELECTED))
+            if (moveTarget & (MOVE_TARGET_USER | MOVE_TARGET_USER_OR_PARTNER))
                 gMultiUsePlayerCursor = gActiveBattler;
             else if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT)])
                 gMultiUsePlayerCursor = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
@@ -2906,7 +2906,7 @@ static void PreviewDeterminativeMoveTargets(void)
         {
         case MOVE_TARGET_SELECTED:
         case MOVE_TARGET_DEPENDS:
-        case MOVE_TARGET_USER_OR_SELECTED:
+        case MOVE_TARGET_USER_OR_PARTNER:
         case MOVE_TARGET_RANDOM:
             bitMask = 0xF0000;
             startY = 0;
@@ -2922,24 +2922,24 @@ static void PreviewDeterminativeMoveTargets(void)
             {
             case MOVE_HAZE:
             case MOVE_SANDSTORM:
-            case MOVE_PERISH_SONG:
-            case MOVE_RAIN_DANCE:
-            case MOVE_SUNNY_DAY:
+            case MOVE_PERISHSONG:
+            case MOVE_RAINDANCE:
+            case MOVE_SUNNYDAY:
             case MOVE_HAIL:
-            case MOVE_MUD_SPORT:
-            case MOVE_WATER_SPORT:
+            case MOVE_MUDSPORT:
+            case MOVE_WATERSPORT:
                 bitMask = 0xF0000;
                 break;
             case MOVE_SAFEGUARD:
             case MOVE_REFLECT:
-            case MOVE_LIGHT_SCREEN:
+            case MOVE_LIGHTSCREEN:
             case MOVE_MIST:
-            case MOVE_HEAL_BELL:
+            case MOVE_HEALBELL:
             case MOVE_AROMATHERAPY:
                 bitMask = (gBitTable[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)]
                          | gBitTable[GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)]) << 16;
                 break;
-            case MOVE_HELPING_HAND:
+            case MOVE_HELPINGHAND:
                 bitMask = (gBitTable[GetBattlerAtPosition(GetBattlerPosition(gActiveBattler) ^ BIT_FLANK)]) << 16;
                 break;
             default:

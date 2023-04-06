@@ -14,8 +14,8 @@
 	.align 2
 gMovesWithQuietBGM::
 	.2byte MOVE_SING
-	.2byte MOVE_PERISH_SONG
-	.2byte MOVE_GRASS_WHISTLE
+	.2byte MOVE_PERISHSONG
+	.2byte MOVE_GRASSWHISTLE
 	.2byte 0xFFFF
 
 	.align 2
